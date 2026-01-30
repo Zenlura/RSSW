@@ -1,0 +1,21 @@
+[33mcommit 5f80b6c75a14dfa78f8fca31276ff26d36d042e3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: c0fbfb5 9f3917d
+Author: Zenlura <zenlura@users.noreply.github.com>
+Date:   Fri Jan 30 00:01:05 2026 +0100
+
+    Merge branch 'main' of https://github.com/Zenlura/RSSW
+    
+    merging
+     because i failed to commit
+
+[33mcommit c0fbfb5d7c6cf97c5580048201edb802c4d36963[m
+Author: Zenlura <zenlura@users.noreply.github.com>
+Date:   Thu Jan 29 23:58:17 2026 +0100
+
+    Initial commit: Radstation Werkstatt App
+
+[33mcommit 9f3917d40cebdf2415fea2a365267aa7bfd5a3e6[m
+Author: Zenlura <zenlura@users.noreply.github.com>
+Date:   Thu Jan 29 23:10:06 2026 +0100
+
+    Initial commit

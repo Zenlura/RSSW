@@ -1,35 +1,19 @@
-# Android Build
-*.iml
-.gradle
-/local.properties
-/.idea/
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-*.apk
-*.ap_
-*.dex
-*.class
-
 # Gradle
 .gradle/
 build/
-*/build/
-
-# Android Studio
-.idea/
-*.iml
-*.iws
-*.ipr
-out/
+**/build/
 
 # Local config
 local.properties
 
-# Log Files
-*.log
+# Android Studio
+.idea/
+*.iml
 
-# NDK
-obj/
+# Keystore (falls später)
+*.jks
+*.keystore
+
+# OS
+.DS_Store
+Thumbs.db

@@ -5,13 +5,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Teil(
-    val id: String,                          // Artikelnummer als ID (z.B. "504b")
+    val id: String,
     val artikelnummer: String,
     val bezeichnung: String,
     val kategorie: String,
     val bestandLager: Int = 0,
     val bestandWerkstatt: Int = 0,
-    val bestandGesamt: Int = 0,
     val einkaufspreis: Double = 0.0,
     val verkaufspreis: Double = 0.0,
     val mindestbestand: Int = 0,
@@ -19,8 +18,11 @@ data class Teil(
     val lieferanten: List<Lieferant> = emptyList(),
     val lagerort: String? = null,
     val notizen: String? = null,
-    val einheit: String = "Stück"
+    val einheit: String? = null
 ) : Parcelable {
+
+    val bestandGesamt: Int
+        get() = bestandLager + bestandWerkstatt
 
     val istNiedrigerBestand: Boolean
         get() = bestandGesamt <= mindestbestand && mindestbestand > 0
@@ -41,6 +43,9 @@ data class Teil(
             BestandStatus.NIEDRIG -> 0xFFFFA500
             BestandStatus.AUSVERKAUFT -> 0xFFFF6B6B
         }
+
+    val einheitAnzeige: String
+        get() = einheit ?: "Stück"
 }
 
 @Parcelize

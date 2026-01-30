@@ -35,7 +35,6 @@ class TeileListViewModel @Inject constructor(
             _isLoading.value = true
             _error.value = null
 
-            // Repository.getTeile() gibt direkt Resource<List<Teil>> zurück (kein Flow)
             when (val result = repository.getTeile()) {
                 is Resource.Success -> {
                     _teile.value = result.data ?: emptyList()
@@ -52,10 +51,15 @@ class TeileListViewModel @Inject constructor(
         }
     }
 
-    fun updateBestand(id: Int, neuerBestand: Int) {
+    fun updateBestand(
+        id: String,
+        typ: String,
+        menge: Int,
+        ort: String = "werkstatt",
+        grund: String = ""
+    ) {
         viewModelScope.launch {
-            // Repository.updateBestand() gibt direkt Resource<Unit> zurück
-            when (repository.updateBestand(id, neuerBestand)) {
+            when (repository.updateBestand(id, typ, menge, ort, grund)) {
                 is Resource.Success -> {
                     loadTeile()
                 }

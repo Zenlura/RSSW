@@ -93,7 +93,7 @@ fun TeilItem(teil: Teil) {
             ) {
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = teil.name,
+                        text = teil.bezeichnung,
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
@@ -107,9 +107,9 @@ fun TeilItem(teil: Teil) {
 
                 Column(horizontalAlignment = Alignment.End) {
                     Text(
-                        text = "${teil.bestand} ${teil.einheit}",
+                        text = "${teil.bestandGesamt} ${teil.einheitAnzeige}",
                         style = MaterialTheme.typography.titleMedium,
-                        color = if (teil.bestand <= teil.mindestbestand) {
+                        color = if (teil.bestandGesamt <= teil.mindestbestand) {
                             MaterialTheme.colorScheme.error
                         } else {
                             MaterialTheme.colorScheme.onSurface
@@ -130,12 +130,12 @@ fun TeilItem(teil: Teil) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = "Preis: ${String.format("%.2f", teil.preis)}€",
+                    text = "Preis: ${String.format("%.2f", teil.verkaufspreis)}€",
                     style = MaterialTheme.typography.bodyMedium
                 )
-                teil.lieferant?.let {
+                if (teil.lieferanten.isNotEmpty()) {
                     Text(
-                        text = "Lieferant: $it",
+                        text = "Lieferant: ${teil.lieferanten.first().name}",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -145,7 +145,6 @@ fun TeilItem(teil: Teil) {
     }
 }
 
-// ViewModel-Wrapper für Navigation
 @Composable
 fun TeileListScreen(
     navController: androidx.navigation.NavHostController

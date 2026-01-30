@@ -132,7 +132,7 @@ fun TeilDto.toTeil(): Teil {
         kategorie = kategorie,
         bestandLager = bestand_lager,
         bestandWerkstatt = bestand_werkstatt,
-        bestandGesamt = bestand_gesamt,
+        // WICHTIG: bestandGesamt NICHT setzen - wird automatisch berechnet!
         einkaufspreis = einkaufspreis,
         verkaufspreis = verkaufspreis,
         mindestbestand = mindestbestand,
